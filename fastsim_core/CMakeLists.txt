@@ -12,10 +12,15 @@ include_directories(include)
 
 set(SOURCES
     src/fastsim_core.cpp
+
+    src/partsmanager/partsmanager.cpp
 )
 
 set(HEADERS
     include/fastsim_core.h
+    include/partsmanager.h
+    include/gates.h
+    include/gate.h
 )
 
 add_library(${PROJECT_NAME} ${SOURCES} ${HEADERS})

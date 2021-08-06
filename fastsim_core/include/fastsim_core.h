@@ -1,5 +1,5 @@
-#ifndef __FASTSIM_CORE__
-#define __FASTSIM_CORE__
+#ifndef __FASTSIM_CORE_H__
+#define __FASTSIM_CORE_H__
 
 class FastSIM_Core;
 
