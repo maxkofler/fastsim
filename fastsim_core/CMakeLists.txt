@@ -14,6 +14,8 @@ set(SOURCES
     src/fastsim_core.cpp
 
     src/partsmanager/partsmanager.cpp
+
+    src/gate/gate.cpp
 )
 
 set(HEADERS
