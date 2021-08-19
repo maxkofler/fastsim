@@ -5,11 +5,11 @@ PartsManager::PartsManager(uint32_t maxParts){
 
 
     this->_nextGID = 0;
-    this->_gates = new Gate*[maxParts];
+    this->_parts = new Part*[maxParts];
 }
 
 PartsManager::~PartsManager(){
     FUN();
 
-    delete this->_gates;
+    delete this->_parts;
 }

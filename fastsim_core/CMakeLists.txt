@@ -14,15 +14,21 @@ set(SOURCES
     src/fastsim_core.cpp
 
     src/partsmanager/partsmanager.cpp
+    src/partsmanager/newPart.cpp
 
-    src/gate/gate.cpp
+    src/part/part.cpp
+
+    #default parts
+    src/default_parts/and_gate.cpp
 )
 
 set(HEADERS
     include/fastsim_core.h
     include/partsmanager.h
-    include/gates.h
-    include/gate.h
+    include/part.h
+    include/connection.h
+
+    include/default_parts/and_gate.h
 )
 
 add_library(${PROJECT_NAME} ${SOURCES} ${HEADERS})
