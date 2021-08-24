@@ -13,7 +13,6 @@ public:
     AndGate(uint32_t global_id = 0, uint8_t input_count = 2);
 
     uint8_t                                 compute();
-
 };
 
 #endif

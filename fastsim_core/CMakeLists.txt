@@ -18,6 +18,9 @@ set(SOURCES
 
     src/part/part.cpp
 
+    ##exceptions
+    src/exceptions/part_exception.cpp
+
     #default parts
     src/default_parts/and_gate.cpp
 )
@@ -27,6 +30,8 @@ set(HEADERS
     include/partsmanager.h
     include/part.h
     include/connection.h
+
+    include/exceptions/part_exception.h
 
     include/default_parts/and_gate.h
 )

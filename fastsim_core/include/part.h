@@ -9,12 +9,32 @@ class Part;
 
 #include "connection.h"
 
+#include "exceptions/part_exception.h"
+
 class Part{
 
 public:
-    explicit                                Part(uint32_t global_id, uint8_t input_count, uint8_t output_count);
+    explicit                                Part(   uint32_t global_id,
+                                                    uint8_t min_inputs, uint8_t max_inputs, uint8_t input_count,
+                                                    uint8_t min_outputs, uint8_t max_outputs, uint8_t output_count);
+    
+    /**
+     * @brief   Sets the global ID of this part
+     * @param   global_id                   The new ID
+     */
     void                                    setGID(uint32_t global_id);
+
+    /**
+     * @brief   Sets the amount of inputs the part has
+     * @param   newCount                    The new amount
+     */
     bool                                    setInputCount(uint8_t newCount);
+
+    /**
+     * @brief   Sets the amount of outputs the part has
+     * @param   newCount                    The new amount
+     * @return
+     */
     bool                                    setOutputCount(uint8_t newCount);
 
     /**
@@ -30,9 +50,13 @@ public:
 protected:
     uint32_t                                _global_id;
 
+    const uint8_t                           _min_inputs;
+    const uint8_t                           _max_inputs;
     uint8_t                                 _input_count;
     Connection**                            _inputs;
 
+    const uint8_t                           _min_outputs;
+    const uint8_t                           _max_outputs;
     uint8_t                                 _output_count;
     Connection**                            _outputs;
     

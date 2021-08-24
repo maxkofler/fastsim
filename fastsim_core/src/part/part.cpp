@@ -1,18 +1,29 @@
 #include "part.h"
 
-Part::Part(uint32_t global_id, uint8_t input_count, uint8_t output_count){
-    FUN();
+#include <exception>
 
-    //Assign the global id
-    this->_global_id = global_id;
+Part::Part( uint32_t global_id,
+            uint8_t min_inputs, uint8_t max_inputs, uint8_t input_count,
+            uint8_t min_outputs, uint8_t max_outputs, uint8_t output_count)
+            
+            :   _min_inputs(min_inputs), _max_inputs(max_outputs),
+                _min_outputs(min_outputs), _max_outputs(max_outputs)
+{
+    FUN();     
 
-    //Save amount of inputs / outputs
-    this->_input_count = input_count;
-    this->_output_count = output_count;
+    //Check for input count in range
+    if (input_count > max_inputs || input_count < min_inputs){
+        PartException::Code ecode = PartException::INPUT_COUNT_OUT_OF_BOUNDS;
+        PartException::Exception exception (ecode);
+        throw exception;
+    }
 
-    //Create arrays for the inputs / outputs
-    this->_inputs = new Connection*[this->_input_count] {nullptr};
-    this->_outputs = new Connection*[this->_output_count] {nullptr};
+    //Check for output count in range
+    if (output_count > max_outputs || output_count < min_outputs){
+        PartException::Code ecode = PartException::OUTPUT_COUNT_OUT_OF_BOUNDS;
+        PartException::Exception exception (ecode);
+        throw exception;
+    }
 }
 
 void Part::setGID(uint32_t global_id){
@@ -30,6 +41,9 @@ bool Part::setInputCount(uint8_t newCount){
     else if (newCount == this->_input_count){
         LOGI("New input count is the same as existing, doing nothing");
         return true;
+    }else if(newCount > this->_max_inputs){
+        LOGE("New input count exceeds maximum input count!");
+        return false;
     }
 
     {
@@ -63,6 +77,9 @@ bool Part::setOutputCount(uint8_t newCount){
     else if (newCount == this->_output_count){
         LOGI("New output count is the same as existing, doing nothing");
         return true;
+    }else if(newCount > this->_max_outputs){
+        LOGE("New output count exceeds maximum output count!");
+        return false;
     }
 
     {
