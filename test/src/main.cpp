@@ -17,6 +17,23 @@ int main(){
 
     PartsManager manager(0xFF);
 
+    AndGate newGate(0xFEDC, 10);
+
+    newGate.getInput(9);
+
+    try{
+        newGate.setOutputCount(100);
+    }catch(PartException::Exception& e){
+        LOGI("Exception: " + std::string(e.what()));
+    }
+
+    try{
+        newGate.getInput(100);
+    }catch(PartException::Exception& e){
+        LOGI("Exception: " + std::string(e.what()));
+    }
+    
+
     manager.newPart(PartsManager::AND);
 
     return 0;

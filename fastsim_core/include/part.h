@@ -38,6 +38,20 @@ public:
     bool                                    setOutputCount(uint8_t newCount);
 
     /**
+     * @brief   Returns a pointer to the requested input connection
+     * @param   id                          The id of the input
+     * @return  The connection pointer, PartException::Exception on error
+     */
+    Connection*                             getInput(uint8_t id);
+
+    /**
+     * @brief   Returns a pointer to the requested output connection
+     * @param   id                          The id of the output
+     * @return  The connection pointer, PartException::Exception on error
+     */
+    Connection*                             getOutput(uint8_t id);
+
+    /**
      * @brief   Computes all the inputs and outputs of this part
      *          TIP: Optimize this function, it will get called a lot of times!
      * @return                              0   =   OK
@@ -47,18 +61,21 @@ public:
      */
     virtual uint8_t                         compute() = 0;
 
+    friend class                            PartException::Exception;
 protected:
     uint32_t                                _global_id;
 
     const uint8_t                           _min_inputs;
     const uint8_t                           _max_inputs;
-    uint8_t                                 _input_count;
+    uint8_t                                 _count_inputs;
     Connection**                            _inputs;
 
     const uint8_t                           _min_outputs;
     const uint8_t                           _max_outputs;
-    uint8_t                                 _output_count;
+    uint8_t                                 _count_outputs;
     Connection**                            _outputs;
+
+    bool                                    _is_initialized = false;
     
 };
 
