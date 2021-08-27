@@ -13,28 +13,22 @@ int main(){
     hlog = new Log(Log::D, false, true);
     FUN();
 
+    Connection ANDin1;
+    Connection ANDin2;
+    Connection ANDout;
+    AndGate gate;
     FastSIM_Core core;
 
-    PartsManager manager(0xFF);
+    core.connectInput(&gate, 0, &ANDin1);
+    core.connectInput(&gate, 1, &ANDin2);
+    core.connectOutput(&gate, 0, &ANDout);
 
-    AndGate newGate(0xFEDC, 10);
+    ANDin1.setState(true);
+    ANDin2.setState(true);
 
-    newGate.getInput(9);
+    gate.compute();
 
-    try{
-        newGate.setOutputCount(100);
-    }catch(PartException::Exception& e){
-        LOGI("Exception: " + std::string(e.what()));
-    }
-
-    try{
-        newGate.getInput(100);
-    }catch(PartException::Exception& e){
-        LOGI("Exception: " + std::string(e.what()));
-    }
-    
-
-    manager.newPart(PartsManager::AND);
+    LOGI("Status after compute: " + std::to_string(ANDout.getState()));
 
     return 0;
 }

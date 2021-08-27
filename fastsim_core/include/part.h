@@ -24,6 +24,8 @@ public:
      */
     void                                    setGID(uint32_t global_id);
 
+    uint32_t                                getGID(){return this->_global_id;}
+
     /**
      * @brief   Sets the amount of inputs the part has
      * @param   newCount                    The new amount
@@ -46,10 +48,13 @@ public:
 
     /**
      * @brief   Returns a pointer to the requested output connection
-     * @param   id                          The id of the output
+     * @param   id                          The id of the outxput
      * @return  The connection pointer, PartException::Exception on error
      */
     Connection*                             getOutput(uint8_t id);
+
+    bool                                    setInput(uint8_t id, Connection* c);
+    bool                                    setOutput(uint8_t id, Connection* c);
 
     /**
      * @brief   Computes all the inputs and outputs of this part

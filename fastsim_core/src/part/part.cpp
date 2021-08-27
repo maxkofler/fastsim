@@ -152,3 +152,33 @@ Connection* Part::getOutput(uint8_t id){
 
     return this->_outputs[id];
 }
+
+bool Part::setInput(uint8_t id, Connection* c){
+    if (id >= this->_max_inputs){
+        PartException::Code ecode = PartException::REQUESTED_INPUT_ID_INVALID;
+        std::string append = std::to_string(this->_min_inputs) + " < (";
+        append += std::to_string(id) + ") < ";
+        append += std::to_string(this->_max_inputs);
+        PartException::Exception exception (this, ecode, append);
+        return false;
+    }
+
+    this->_inputs[id] = c;
+
+    return true;
+}
+
+bool Part::setOutput(uint8_t id, Connection* c){
+    if (id >= this->_max_outputs){
+        PartException::Code ecode = PartException::REQUESTED_OUTPUT_ID_INVALID;
+        std::string append = std::to_string(this->_min_outputs) + " < (";
+        append += std::to_string(id) + ") < ";
+        append += std::to_string(this->_max_outputs);
+        PartException::Exception exception (this, ecode, append);
+        return false;
+    }
+
+    this->_outputs[id] = c;
+
+    return true;
+}

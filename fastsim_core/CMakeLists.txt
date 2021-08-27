@@ -11,7 +11,8 @@ include_directories(Log/include)
 include_directories(include)
 
 set(SOURCES
-    src/fastsim_core.cpp
+    src/fastsim_core/fastsim_core.cpp
+    src/fastsim_core/connect.cpp
 
     src/partsmanager/partsmanager.cpp
     src/partsmanager/newPart.cpp
@@ -23,6 +24,9 @@ set(SOURCES
 
     #default parts
     src/default_parts/and_gate.cpp
+
+    #connection
+    src/connection/addPart.cpp
 )
 
 set(HEADERS

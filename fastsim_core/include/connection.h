@@ -20,8 +20,13 @@ public:
      */
     bool                                    addPart(Part* part);
 
+    bool                                    getState(){return this->_state;}
+    void                                    setState(bool s){this->_state = s;}
+
 private:
     std::vector<Part*>                      _parts_connected;
+
+    bool                                    _state = false;
 };
 
 #endif
