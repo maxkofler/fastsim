@@ -9,6 +9,8 @@ add_subdirectory(tests)
 
 include_directories(./include)
 
+include_directories(googletest/googletest/include)
+
 file (GLOB_RECURSE libfiles "./src/**.cpp")
 
 add_library(fastsim STATIC ${libfiles})

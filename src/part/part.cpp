@@ -1,5 +1,5 @@
 #include "part.h"
 
-Part::Part(){
+FastSIM::Part::Part(){
     
 }
