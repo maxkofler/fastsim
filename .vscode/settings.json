@@ -1,5 +1,4 @@
 {
-    "cmake.sourceDirectory": "${workspaceRoot}/test",
     "files.associations": {
         "array": "cpp",
         "atomic": "cpp",
