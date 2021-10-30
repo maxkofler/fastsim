@@ -7,7 +7,7 @@ enable_testing()
 add_subdirectory(googletest)
 add_subdirectory(tests)
 
-include_directories(./include)
+include_directories(include)
 
 include_directories(googletest/googletest/include)
 

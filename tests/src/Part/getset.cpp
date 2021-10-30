@@ -1,27 +1,21 @@
-#include "globals.h"
-
-#include "part.h"
+#include "part_globals.h"
 
 TEST(Part, SetInput){
-	using namespace FastSIM;
-	Part part;
-
+	Part part(1, 0);
 	Connection input;
 
-	ASSERT_EQ(0, part._inputs.size());
-	ASSERT_TRUE(part.setInput(0, &input));
-	ASSERT_EQ(1, part._inputs.size());
-	ASSERT_EQ(&input, part._inputs[0]);
+	EXPECT_TRUE(part.setInput(0, &input));
+	EXPECT_FALSE(part.setInput(1, &input));
+
+	EXPECT_EQ(&input, part._inputs[0]);
 }
 
 TEST(Part, SetOutput){
-	using namespace FastSIM;
-	Part part;
-
+	Part part(0, 1);
 	Connection output;
 
-	ASSERT_EQ(0, part._outputs.size());
-	ASSERT_TRUE(part.setOutput(0, &output));
-	ASSERT_EQ(1, part._outputs.size());
-	ASSERT_EQ(&output, part._outputs[0]);
+	EXPECT_TRUE(part.setOutput(0, &output));
+	EXPECT_FALSE(part.setOutput(1, &output));
+
+	EXPECT_EQ(&output, part._outputs[0]);
 }

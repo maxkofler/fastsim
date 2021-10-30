@@ -4,6 +4,9 @@
 #include <stdint.h>
 #include <vector>
 
+//For size_t
+#include <cstddef>
+
 #include "connection.h"
 
 namespace FastSIM{
@@ -12,16 +15,22 @@ namespace FastSIM{
 
         public:
             Part();
+			Part(size_t count_inputs, size_t count_outputs);
+
+			~Part();
 
             bool                      		setInput(uint8_t id, Connection* connection);
             bool                        	setOutput(uint8_t id, Connection* connection);
         
-        #ifndef UNITTEST
+		#ifndef FRIEND_PART
         private:
         #endif
 
-			std::vector<Connection*>        _inputs;
-			std::vector<Connection*>        _outputs;
+			size_t							_count_inputs;
+			size_t							_count_outputs;
+
+			Connection**					_inputs;
+			Connection**					_outputs;
 
     };
 

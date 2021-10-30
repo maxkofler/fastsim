@@ -1,4 +1,4 @@
-#include "connection.h"
+#include "fastsim/connection.h"
 
 FastSIM::Connection::Connection(){
     
