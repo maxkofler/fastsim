@@ -1,5 +1,7 @@
 #include <gtest/gtest.h>
 
-TEST(Connection, constructor){
+TEST(Constructor, constructor){
     ASSERT_TRUE(true);
 }
+
+

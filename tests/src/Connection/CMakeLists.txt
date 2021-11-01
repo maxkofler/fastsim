@@ -6,8 +6,9 @@ file(GLOB_RECURSE sources "./**.cpp")
 add_executable(${TEST_NAME} ${sources})
 
 target_link_libraries(${TEST_NAME} PUBLIC
-    gtest_main
+    gtest
     fastsim
+    main_tests
 )
 
 add_test(

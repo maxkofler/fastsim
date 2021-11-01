@@ -2,7 +2,7 @@
 
 TEST(Part, SetInput){
 	Part part(1, 0);
-	Connection input;
+	Pin input;
 
 	EXPECT_TRUE(part.setInput(0, &input));
 	EXPECT_FALSE(part.setInput(1, &input));
@@ -12,7 +12,7 @@ TEST(Part, SetInput){
 
 TEST(Part, SetOutput){
 	Part part(0, 1);
-	Connection output;
+	Pin output;
 
 	EXPECT_TRUE(part.setOutput(0, &output));
 	EXPECT_FALSE(part.setOutput(1, &output));

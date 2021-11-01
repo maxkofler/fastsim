@@ -3,6 +3,8 @@
 
 #include "globals.h"
 
+#define FRIEND_PART
+
 #include "fastsim/part.h"
 
 using namespace FastSIM;

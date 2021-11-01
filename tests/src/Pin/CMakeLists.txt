@@ -1,5 +1,5 @@
 
-set(TEST_NAME Part)
+set(TEST_NAME Pin)
 
 file(GLOB_RECURSE sources "./**.cpp")
 

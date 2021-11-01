@@ -8,6 +8,10 @@ namespace FastSIM{
         public:
             Connection();
 
+		#ifndef FRIEND_CONNECTION
+		private:
+		#endif
+
     };
 
 }

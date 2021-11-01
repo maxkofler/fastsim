@@ -6,11 +6,11 @@ enable_testing()
 
 add_subdirectory(googletest)
 add_subdirectory(tests)
+add_subdirectory(Log)
 
-include_directories(include)
-
-include_directories(googletest/googletest/include)
+include_directories(include Log/include googletest/googletest/include)
 
 file (GLOB_RECURSE libfiles "./src/**.cpp")
 
 add_library(fastsim STATIC ${libfiles})
+target_link_libraries(fastsim log)

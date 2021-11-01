@@ -7,20 +7,20 @@
 //For size_t
 #include <cstddef>
 
-#include "connection.h"
+#include "fastsim/pin.h"
 
 namespace FastSIM{
 
     class Part{
 
         public:
-            Part();
+			Part();
 			Part(size_t count_inputs, size_t count_outputs);
 
 			~Part();
 
-            bool                      		setInput(uint8_t id, Connection* connection);
-            bool                        	setOutput(uint8_t id, Connection* connection);
+			bool                      		setInput(uint8_t id, Pin* pin);
+			bool                        	setOutput(uint8_t id, Pin* pin);
         
 		#ifndef FRIEND_PART
         private:
@@ -29,8 +29,8 @@ namespace FastSIM{
 			size_t							_count_inputs;
 			size_t							_count_outputs;
 
-			Connection**					_inputs;
-			Connection**					_outputs;
+			Pin**							_inputs;
+			Pin**							_outputs;
 
     };
 
