@@ -1,5 +1,5 @@
 #include "fastsim/part.h"
-#include "log.h"
+#include "fastsim/implementationCommon.h"
 
 FastSIM::Part::Part() :
 	Part(1, 1)

@@ -22,9 +22,12 @@ namespace FastSIM{
 			bool                      		setInput(uint8_t id, Pin* pin);
 			bool                        	setOutput(uint8_t id, Pin* pin);
         
+			friend class FastSIM;
 		#ifndef FRIEND_PART
         private:
         #endif
+
+			size_t							_part_id;
 
 			size_t							_count_inputs;
 			size_t							_count_outputs;

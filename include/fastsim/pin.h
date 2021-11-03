@@ -1,6 +1,9 @@
 #ifndef __PIN_H__
 #define __PIN_H__
 
+//For size_t
+#include <cstddef>
+
 namespace FastSIM{
 
 	/**
@@ -17,9 +20,12 @@ namespace FastSIM{
 		void					setState(bool state);
 		bool					getState();
 
+		friend class FastSIM;
 	#ifndef FRIEND_PIN
 	private:
 	#endif
+
+		size_t					_pin_id;
 
 		bool					_state;
 
