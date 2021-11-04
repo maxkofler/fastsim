@@ -4,6 +4,8 @@
 //For size_t
 #include <cstddef>
 
+#include <string>
+
 namespace FastSIM{
 
 	/**
@@ -19,6 +21,8 @@ namespace FastSIM{
 
 		void					setState(bool state);
 		bool					getState();
+
+		std::string				toString(){return "Pin #" + std::to_string(this->_pin_id);}
 
 		friend class FastSIM;
 	#ifndef FRIEND_PIN

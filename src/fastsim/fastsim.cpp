@@ -12,4 +12,6 @@ FastSIM::FastSIM::~FastSIM(){
 	FUN();
 
 	this->cleanParts();
+	this->cleanPins();
+	this->cleanConnections();
 }

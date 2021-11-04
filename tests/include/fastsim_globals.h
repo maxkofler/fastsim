@@ -5,9 +5,9 @@
 
 #define FRIEND_FASTSIM
 
-#define TEST_COUNT_PARTS 255
-#define TEST_COUNT_PINS 255
-#define TEST_COUNT_CONNECTIONS 255
+#define TEST_COUNT_PARTS 2
+#define TEST_COUNT_PINS 2
+#define TEST_COUNT_CONNECTIONS 2
 
 #include "fastsim/fastsim.h"
 
