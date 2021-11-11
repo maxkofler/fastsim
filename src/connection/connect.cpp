@@ -17,5 +17,6 @@ int FastSIM::Connection::connect(Pin *pin){
 
 	this->_pins.push_back(pin);
 
+	this->_is_optimized = false;
 	return 0;
 }

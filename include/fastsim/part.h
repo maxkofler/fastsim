@@ -19,7 +19,18 @@ namespace FastSIM{
 
 			~Part();
 
+			/**
+			 * @brief Sets the Input of the Part to a Pin
+			 * @param id					The endpoint id to attach to
+			 * @param pin					A pointer to the pin to attach
+			 */
 			bool                      		setInput(uint8_t id, Pin* pin);
+
+			/**
+			 * @brief Sets the Output of the Part to a Pin
+			 * @param id					The endpoint id to attach to
+			 * @param pin					A pointer to the pin to attach
+			 */
 			bool                        	setOutput(uint8_t id, Pin* pin);
         
 			friend class FastSIM;
@@ -32,8 +43,9 @@ namespace FastSIM{
 			size_t							_count_inputs;
 			size_t							_count_outputs;
 
-			Pin**							_inputs;
-			Pin**							_outputs;
+			//Pointer area
+			Pin**							_inputs;//S
+			Pin**							_outputs;//S
 
     };
 

@@ -1,6 +1,7 @@
 #ifndef __CONNECTION_H__
 #define __CONNECTION_H__
 
+#include "fastsim/fastSimComponent.h"
 #include "fastsim/pin.h"
 
 //For size_t
@@ -10,10 +11,12 @@
 
 namespace FastSIM{
 
-    class Connection{
+	class Connection : public FastSIMComponent{
 
         public:
             Connection();
+
+			~Connection();
 
 			/**
 			 * @brief	Adds the provided Pin to the Connection
@@ -24,6 +27,12 @@ namespace FastSIM{
 			 */
 			int						connect(Pin* pin);
 
+			/**
+			 * @brief Optimizes the objects of this class for simulation
+			 * @return				The amount of optimized items
+			 */
+			int						optimize();
+
 			friend class FastSIM;
 		#ifndef FRIEND_CONNECTION
 		private:
@@ -32,6 +41,11 @@ namespace FastSIM{
 
 			std::vector<Pin*>		_pins;
 
+			bool					_is_optimized;
+			size_t					_o_sizePins = 0;
+
+			//Pointer area
+				Pin**				_o_pins = nullptr;//S
     };
 
 }

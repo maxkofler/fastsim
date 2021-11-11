@@ -11,16 +11,18 @@ FastSIM::Part::Part(size_t count_inputs, size_t count_outputs) :
 	_count_inputs(count_inputs), _count_outputs(count_outputs)
 {
 	FUN();
+
 	this->_inputs = new Pin*[this->_count_inputs];
+
 	this->_outputs = new Pin*[this->_count_outputs];
 }
 
 FastSIM::Part::~Part(){
 	FUN();
-	delete[] this->_inputs;
-	delete[] this->_outputs;
-	this->_inputs = nullptr;
-	this->_outputs = nullptr;
-	this->_count_inputs = 0;
-	this->_count_outputs = 0;
+
+	if (this->_inputs != nullptr)
+		delete[] this->_inputs;
+
+	if (this->_outputs != nullptr)
+		delete[] this->_outputs;
 }

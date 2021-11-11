@@ -6,7 +6,7 @@ int FastSIM::FastSIM::cleanPins(){
 	APICALL("[FastSIM] Cleaning ALL Pins from memory");
 
 	for (Pin* curPin : this->_pins){
-		LOGMEM("[FastSIM] [FastSIM] Deleting Pin #" + std::to_string(curPin->_pin_id) + "...");
+		LOGMEM("[FastSIM] [FastSIM] Deleting " + curPin->toString() + "...");
 		delete curPin;
 	}
 

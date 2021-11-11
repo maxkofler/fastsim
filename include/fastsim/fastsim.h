@@ -71,7 +71,6 @@ namespace FastSIM {
 		std::vector<Part*>			_parts;
 		std::vector<Pin*>			_pins;
 		std::vector<Connection*>	_connections;
-
 	};
 
 }

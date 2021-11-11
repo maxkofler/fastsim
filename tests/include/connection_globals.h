@@ -3,6 +3,7 @@
 
 #include "fastsim_globals.h"
 
+#define FRIEND_FASTSIMCOMPONENT
 #define FRIEND_CONNECTION
 
 #include "fastsim/connection.h"
