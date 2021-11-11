@@ -9,5 +9,5 @@ YES! You will need ```cmake```, ```git``` and a compiler (such as ```gcc```). Ne
 using ```mkdir build```, change into this folder using ```cd build``` and then CMake the project: ```cmake ..```. The next step is to build it using make: ```make -j <number of cores>```.
 Now you can run the tests using ```ctest -V .```
 
-## How can I help?[Dr. Ken Lunde](mailto:lunde@adobe.com?subject=[GitHub]
+## How can I help?
 You can help by first of all try to build this project and run the tests, if you want to help me developing this library, contact me: [Max Kofler](mailto:kofler.max.dev@gmail.com?subject=[FastSIM])
