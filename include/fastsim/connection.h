@@ -41,7 +41,6 @@ namespace FastSIM{
 
 			std::vector<Pin*>		_pins;
 
-			bool					_is_optimized;
 			size_t					_o_sizePins = 0;
 
 			//Pointer area
